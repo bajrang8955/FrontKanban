@@ -1,12 +1,11 @@
 # FrontKanban
 [FrontAccounting](http://frontaccounting.com/) Kanban Projects Management Extension
 
-[DEMO](http://notrinos.cf)
+[DEMO](http://notrinos.webstarterz.com/act/index.php)
 
 Requirement
 -----------
 - FrontAccounting 2.4.x
-- [dejavu font](http://frontaccounting.com/wb3/modules/download_gallery/dlc.php?file=57)
 
 Installation
 ------------
