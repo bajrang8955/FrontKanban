@@ -1,4 +1,13 @@
 <?php
+/*=======================================================\
+|                        FrontKanban                     |
+|--------------------------------------------------------|
+|   Creator: Phương                                      |
+|   Date :   01-12-2017                                  |
+|   Description: Frontaccounting Project Management Ext  |
+|   Free software under GNU GPL                          |
+|                                                        |
+\=======================================================*/
 
 $page_security = 'SA_MANAGER';
 $path_to_root  = '../..';
