@@ -18,12 +18,12 @@ class kanban_app extends application {
         parent::__construct("kanban", _($this->help_context = "Projects"));
         
         $this->add_module(_("Transactions"));
-		$this->add_lapp_function(0, _('Projects'), $path_to_root.'/modules/kanban/manage/projects.php', 'SA_MANAGER', MENU_TRANSACTION);
+		$this->add_lapp_function(0, _('Projects'), $path_to_root.'/modules/kanban/manage/projects.php?', 'SA_MANAGER', MENU_TRANSACTION);
    
-        $this->add_module(_("Inquiries and Reports"));
+        // $this->add_module(_("Inquiries and Reports"));
 		// $this->add_lapp_function(1, _('Timesheet'), $path_to_root.'/modules/kanban/inquiry/time_sheet.php', 'SA_EMPL', MENU_INQUIRY);
         
-        $this->add_module(_("Maintenance"));
+        // $this->add_module(_("Maintenance"));
 		// $this->add_lapp_function(2, _('Employees'), $path_to_root.'/modules/kanban/manage/employee.php?', 'SA_EMPL', MENU_ENTRY);
 		
 		$this->add_extensions();
