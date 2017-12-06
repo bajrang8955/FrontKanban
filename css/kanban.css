@@ -1,34 +1,34 @@
-body { 
-	font-family: Helvetica; 
-	/*height: 100%;*/
-}
+
 h4 {
 	line-height: 40px;
+	width: calc(100% - 10px);
 	vertical-align: middle;
 	border-bottom: 1px solid #DDD;
 	margin: 0 auto;
-	margin-left: .5em;
 	color: #555;
-	width: calc(100% - 10px);
 }
 .state_box a.new {
 	font-size: 1.5em;
 	padding: .5em;
 }
-
-#board {
+#kanban_wrapper {
+	font-size: 1.2em;
+}
+#kanban_board {
 	float: left;
 	width: 100%;
 	display: table;
-	background: inherit;
+	border-top: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	box-sizing: border-box;
 }
-#board .col {
-	display: table-cell;
+#kanban_board .col {
 	padding-bottom:45px;
 }
-
 .state_box {
-	width:12.5%;
+	width:25%;
+	max-width: 480px;
+	display: table-cell;
 }
 .col_even {
 	background-color: #F5F5F5;
@@ -36,23 +36,28 @@ h4 {
 .col_odd {
 	background-color: #FFFFFF;
 }
-
 ul { 
 	list-style: none; 
 	margin: 0 0 0 0; 
 	padding: 0 0 0 0;
 }
-
-.box {
+.task_box {
 	padding: 0.2em;
-	margin:5px;
+	margin: 5px;
 	min-height: 32px;
 	border-radius: 2px;
-	/*-moz-box-shadow:    3px 3px 5px 6px #00050A;
-	-webkit-box-shadow: 0px 1px 1px 1px #00050A;
-	box-shadow: 0px 1px 1px 1px #00050A;*/
+	display: inline-block;
+	width: calc(100% - 14px - 0.4em);
+	word-wrap: break-word;
+	box-sizing: initial;
 }
-
+.task_box .task_editable {
+	max-height: 150px;
+	overflow: auto;
+}
+.task_modal .task_editable {
+	max-height: 100%;
+}
 .color_0 {
 	background-color: #EEE;
 	border: 2px solid #CCC;
@@ -73,100 +78,127 @@ ul {
 	background-color: #DFB0FF;
 	border: 2px solid #CD85FE;
 }
-
-.highlight .box {
-	background-color: #009999;
-}
-
-.box .editBox {
-	width: auto;
-}
-
-.placeholder div { 
-	background-color:white !important; 
-	border:dashed 1px gray !important; 
-	margin:5px;
-}
-
 .editBox {
 	background-color: white;
 	border: 2px solid #E8F3FF;
 	padding: 10px 15px;
-	height: 35px;
+	height: auto;
+	width: 50%;
+	font-size: 1.3em;
+	color: #555;
+	box-sizing: border-box;
 }
+.user_list_cells, .task_modal_control {
+    display: inline-block;
+    width: 45%;
+    float: right;
+    box-sizing: border-box;
 
+}
+.task_modal_control {
+	position: relative;
+	bottom: 30px;
+	display: flex;
+}
+.task_modal_control a:hover {
+	text-decoration: none;
+	color: #DDD;
+}
 .clear {
 	clear: both;
 }
-
+#filter_header {
+	font-size: 1em;
+	font-weight: bold;
+	color: #555;
+}
 .people-list li {
 	float: left;
 	margin-right: 10px;
 }
-
-.navigation {
+.member_filter {
 	margin: 10px;
 }
-
-
-.navigation ul {
-	margin-top: 10px;
+.member_filter ul {
 	display: inline-block;
 }
-
-navigation.top {
-	/*height: 30px;*/
-	padding: 10px;
-	display: block;
-	background: #666666; /* Old browsers */
-	background: -moz-linear-gradient(top,  #666666 0%, #474747 22%, #000000 100%, #131313 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666666), color-stop(22%,#474747), color-stop(100%,#000000), color-stop(100%,#131313)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #666666 0%,#474747 22%,#000000 100%,#131313 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #666666 0%,#474747 22%,#000000 100%,#131313 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #666666 0%,#474747 22%,#000000 100%,#131313 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #666666 0%,#474747 22%,#000000 100%,#131313 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
-	height: 1em;
-}
-
-navigation.top a, navigation.top a:visited, navigation.top a:active {
-	color: #fff;
-	text-decoration: none;
-	margin-left: 5px;
-}
-
-navigation.top li {
-	float: left;
-	margin-right: 10px;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	margin-top: 1px;
-	line-height: 14px;
-	vertical-align: text-top;
-	background-image: url("../img/glyphicons-halflings-white.png");
-	background-position: 14px 14px;
-	background-repeat: no-repeat;
-}
-.icon-plus {
-	background-position: -408px -96px;
-}
-.icon-question-sign {
-	background-position: -96px -96px;
-}
-
 .hide {
 	display: none;
 }
-
-.modal li {
-	line-height: 1.8em;
+.task_box .user_box {
+	display: inline-block;
+	float: left;
+	color: #777;
+	margin: 5px 0;
 }
 .blur_task {
 	background-color: #F9F9F9;
-	border: 1px solid #EEEEEE;
+	border: 2px solid #F9F9F9;
 	color: #DDDDDD;
+}
+.blur_task * {
+	color: #DDDDDD !important;
+}
+.task_modal {
+	display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+    margin: 0;
+    box-sizing: border-box;
+    border-width: 0;
+    border-top-width: 30px;
+    cursor: default;
+}
+.task_modal form {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.task_modal .user_box, .task_modal .editable {
+	display: none;
+}
+.task_modal_control a {
+	font-size: 1.3em;
+	margin-right: 5px;
+	padding: 3px 5px;
+	border-radius: 2px;
+	color: #FFF;
+}
+.save {
+	border: 1px solid #3079ed;
+	background-color: #4d90fe;
+}
+.cancel {
+	border: 1px solid #777777;
+	background-color: #868E96;
+}
+.delete {
+	border: 1px solid #DC3545;
+	background-color: #D9534F;
+	position: absolute;
+	right: 0;
+}
+.color {
+	border: 1px solid #20A040;
+	background-color: #2FAF4F;
+}
+.editable {
+	display: inline-block;
+	float: right;
+	margin: 5px 0;
+}
+.placeholder div { 
+	background-color: #FFF !important; 
+	border: dashed 1px #CCC !important; 
+	margin: 5px;
 }
