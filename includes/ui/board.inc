@@ -1,13 +1,12 @@
 
-<link href="../css/kanban.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $path_to_root ?>/modules/kanban/css/kanban.css" rel="stylesheet" type="text/css" />
 	
-<div id="wrapper">
-	<div id="board"></div>
+<div id="kanban_wrapper">
+	<div id="kanban_board"></div>
 	<div class="clear"></div>
 
-	<div id="navigation" class="navigation">
-		<h5>Project members</h5>
-
+	<div id="member_filter" class="member_filter">
+		<div id="filter_header">Project members</div>
 	</div>
 </div>
 
