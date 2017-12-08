@@ -92,11 +92,11 @@ function add_project_data_file($id) {
     global $path_to_root;
 
 	$content = "{}";
-    $fp = fopen("$path_to_root/modules/kanban/data/".$id.".txt", "wb");
+    $fp = fopen("$path_to_root/modules/kanban/data/".$id, "wb");
     fwrite($fp, $content);
     fclose($fp);
 
-    if(file_exists("$path_to_root/modules/kanban/data/".$id.".txt"))
+    if(file_exists("$path_to_root/modules/kanban/data/".$id))
         return true;
     else
         return false;
